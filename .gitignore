@@ -1,0 +1,28 @@
+# Compilados Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ambientes virtuais
+.env/
+.venv/
+venv/
+ENV/
+env.bak/
+
+# Cache Poetry
+poetry.lock
+
+# Dados de execução do jogo
+pet_data.json
+
+# Arquivos temporários e logs
+*.log
+
+# Configs do VSCode
+.vscode/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
