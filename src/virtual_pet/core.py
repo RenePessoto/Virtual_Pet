@@ -25,7 +25,7 @@ class Pet:
             self.energia -= 10
             self.ganhar_xp(15)
         else:
-            print("[red]O pet está cansado demais para brincar.[/red]")
+            print("[red]TRÊMULO!! O pet está cansado demais para brincar.[/red]")
 
     def estudar(self):
         if self.energia >= 15:
@@ -33,8 +33,16 @@ class Pet:
             self.energia -= 15
             self.ganhar_xp(20)
         else:
-            print("[red]O pet está muito cansado para aprender algo novo.[/red]")
+            print("[red]CONFUSO!! O pet está muito cansado para aprender algo novo.[/red]")
 
+    def treinar(self):
+        if self.energia >= 20:
+            self.forca += 1
+            self.energia -= 20
+            self.ganhar_xp(25)
+        else:
+            print("[red]CANSADO!! O pet está muito cansado para treinar.[/red]")
+    
     def dormir(self):
         self.energia = 100
         self.ganhar_xp(5)
