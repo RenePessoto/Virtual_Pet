@@ -11,7 +11,8 @@ def salvar_pet(pet: Pet, caminho: str = "pet_data.json"):
         "forca": pet.forca,
         "agilidade": pet.agilidade,
         "inteligencia": pet.inteligencia,
-        "afinidade": pet.afinidade,
+        "afinidade": pet.afinidade,         
+        "mutacoes": pet.mutacoes,
     }
     with open(caminho, "w") as f:
         json.dump(dados, f)
@@ -28,5 +29,6 @@ def carregar_pet(caminho: str = "pet_data.json") -> Pet:
         pet.agilidade = dados["agilidade"]
         pet.inteligencia = dados["inteligencia"]
         pet.afinidade = dados.get("afinidade","neutro")  # Padrão "neutro" se não houver afinidade
+        pet.mutacoes = dados.get("mutacoes", [])
         return pet
     return Pet("SemNome")  # Retorna um pet vazio se o arquivo não existir

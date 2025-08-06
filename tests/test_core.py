@@ -56,3 +56,57 @@ def test_evolucao_de_nivel():
     pet.ganhar_xp(100)
     assert pet.nivel == 2
     assert pet.xp == 0
+
+
+def test_mutação_por_afinidade():
+    afinidades_esperadas = {
+        "terra": "garras de aço",
+        "ar": "asas de rapina",
+        "fogo": "cauda flamejante",
+        "água": "barbatana afiada",
+        "neutro": "olhos brilhantes",
+    }
+    for afinidade, mutacao_esperada in afinidades_esperadas.items():
+        pet = Pet("Testinho")
+        pet.afinidade = afinidade
+        pet.nivel = 9
+        pet.xp = 1000
+        pet.verificar_evolucao()
+        assert mutacao_esperada in pet.mutacoes, f"Mutação esperada '{mutacao_esperada}' não encontrada para afinidade '{afinidade}'"
+
+def test_emocao_exausto():
+    pet = Pet("Testinho")
+    pet.energia = 10
+    pet.atualizar_emocao()
+    assert pet.emocao == "exausto"
+
+def test_emocao_entediado():
+    pet = Pet("Testinho")
+    pet.xp = 5
+    pet.atualizar_emocao()
+    assert pet.emocao == "entediado"
+
+def test_emocao_curioso():
+    pet = Pet("Testinho")
+    pet.nivel = 5
+    pet.inteligencia = 10
+    pet.forca = 5
+    pet.atualizar_emocao()
+    assert pet.emocao == "curioso"
+
+def test_emocao_inquieto():
+    pet = Pet("Testinho")
+    pet.agilidade = 15
+    pet.inteligencia = 5
+    pet.atualizar_emocao()
+    assert pet.emocao == "inquieto"
+
+def test_emocao_feliz():
+    pet = Pet("Testinho")
+    pet.energia = 100
+    pet.xp = 200
+    pet.inteligencia = 10
+    pet.forca = 10
+    pet.agilidade = 10
+    pet.atualizar_emocao()
+    assert pet.emocao == "feliz"
